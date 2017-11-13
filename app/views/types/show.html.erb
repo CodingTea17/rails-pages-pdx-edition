@@ -3,9 +3,9 @@
 <% if @type.businesses.any? %>
   <h4>Here are the businesses for this type:</h4>
 
-  <ul>
+  <ul class="list-group">
     <% @type.businesses.each do |business| %>
-      <li>
+      <li class="list-group-item">
         <%= business.name %> |
         <%= link_to "Edit", edit_type_business_path(@type, business) %> |
         <%= link_to "Delete", type_business_path(@type, business),
@@ -22,7 +22,7 @@
     <% end %>
   </ul>
 <% else %>
-  <p>There are no businesses yet!</p>
+  <p class="text-danger">There are no businesses yet!</p>
 <% end %>
 
 <p><%= link_to "Add a business", new_type_business_path(@type) %></p>

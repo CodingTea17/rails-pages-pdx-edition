@@ -18,6 +18,7 @@ class TypesController < ApplicationController
   def create
     @type = Type.new(type_params)
     if @type.save
+      flash[:notice] = "List successfully added!"
       redirect_to types_path
     else
       render :new

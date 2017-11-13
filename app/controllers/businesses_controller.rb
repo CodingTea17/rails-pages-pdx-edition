@@ -8,16 +8,11 @@ class BusinessesController < ApplicationController
     @type = Type.find(params[:type_id])
     @business = @type.businesses.new(business_params)
     if @type.save
+      flash[:notice] = "List successfully added!"
       redirect_to type_path(@business.type)
     else
       render :new
     end
-  end
-
-  def destroy
-    @business = Business.find(params[:id])
-    @business.destroy
-    redirect_to type_path(@business.type)
   end
 
   def edit
@@ -34,6 +29,12 @@ class BusinessesController < ApplicationController
       @type = Type.find(params[:type_id])
       render :edit
     end
+  end
+
+  def destroy
+    @business = Business.find(params[:id])
+    @business.destroy
+    redirect_to type_path(@business.type)
   end
 
 private

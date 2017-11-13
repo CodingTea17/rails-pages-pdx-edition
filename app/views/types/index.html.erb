@@ -1,9 +1,24 @@
-<h1>Category</h1>
+<h1>Categories</h1>
 
-<ul>
+<!-- <ul class="list-group">
   <% @types.each do |type| %>
-    <li><%= link_to type.category, type_path(type) %></li>
+    <li class="list-group-item"><%= link_to type.category, type_path(type) %></li>
   <% end %>
-</ul>
-
-<%= link_to "New Category", new_type_path %>
+</ul> -->
+<div class="row">
+  <div class="dropdown col-12">
+    <button class="btn btn-primary btn-block btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+      Select A Type
+    </button>
+    <div class="dropdown-menu col-12">
+      <% @types.each do |type| %>
+        <a class="dropdown-item" href="<%=type_path(type)%>"><%= type.category %></a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-12">
+    <%= link_to "New Category", new_type_path, :class => "btn btn-success btn-block btn-lg" %>
+  </div>
+</div>
