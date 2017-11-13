@@ -1,3 +1,29 @@
 <h1><%= @type.category %></h1>
 
+<% if @type.businesses.any? %>
+  <h4>Here are the businesses for this type:</h4>
+
+  <ul>
+    <% @type.businesses.each do |business| %>
+      <li>
+        <%= business.name %> |
+        <%= link_to "Edit", edit_type_business_path(@type, business) %> |
+        <%= link_to "Delete", type_business_path(@type, business),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+        <ul>
+          <li><%= business.street %></li>
+          <li><%= business.city + ", " + business.state + " " + business.zip%></li>
+          <li><%= business.telenum %></li>
+          <li><%= business.email %></li>
+          <li><%= business.website %></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no businesses yet!</p>
+<% end %>
+
+<p><%= link_to "Add a business", new_type_business_path(@type) %></p>
 <p><%= link_to "Return to categories", types_path%></p>
