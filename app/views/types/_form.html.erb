@@ -1,7 +1,13 @@
 <%= render "layouts/errors", :object => @type %>
 
 <%= form_for @type do |f| %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.submit %>
+  <!-- <%= f.label :category %> -->
+  <div class="col-4">
+    <div class="input-group">
+    <%= f.text_field :category, :placeholder => "Category", :class => "form-control" %>
+    <span class="input-group-btn">
+      <%= f.submit :class => "btn btn-danger"%>
+    </span>
+  </div>
+  </div>
 <% end %>
