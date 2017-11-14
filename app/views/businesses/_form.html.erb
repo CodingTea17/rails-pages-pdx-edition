@@ -1,13 +1,17 @@
 <%= render('layouts/errors', :object => @business) %>
 
 <%= form_for [@type, @business] do |f| %>
-  <div class="form-group">
-    <%= f.label :name  %>
-    <%= f.text_field :name %>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class=>"form-control" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :telenum %>
-    <%= f.text_field :telenum %>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <%= f.label :telenum %>
+      <%= f.text_field :telenum, :class=>"form-control" %>
+    </div>
   </div>
   <div class="form-row">
     <div class="form-group col-6">
